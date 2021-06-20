@@ -1,0 +1,106 @@
+<div class="card card-body mx-auto col-md-6">
+  <h2 class="mx-auto">Register Employee</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      Employee ID :
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter Name"
+        name="empid"
+        [(ngModel)]="empid"
+      />
+      Employee Name :
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Name"
+        required
+        name="name"
+        [(ngModel)]="name"
+      />
+      <br />
+      <div class="dropdown inline-block form-group">
+        Designation :
+        <select class="form-control" [(ngModel)]="desigselected" name="desig">
+          <option *ngFor="let design of designation">
+            {{ design.name }}
+          </option>
+        </select>
+      </div>
+      Salary :
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter Salary"
+        required
+        name="sal"
+        [(ngModel)]="sal"
+      />
+      Email :
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Enter Email"
+        required
+        name="mail"
+        [(ngModel)]="mail"
+      />
+      Mobile :
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter Mobile"
+        required
+        minlength="6"
+        maxlength="10"
+        name="phn"
+        [(ngModel)]="phn"
+      />
+      Gender :
+      <div class="form-check" *ngFor="let item of Gender">
+        <input
+          class="form-check-input"
+          type="radio"
+          required
+          name="gender"
+          value="{{ item }}"
+          name="gen"
+          (change)="genchange($event)"
+        />
+        <label class="form-check-label"> {{ item }} </label>
+      </div>
+      Languages Known:
+      <div class="form-check form-check-inline" *ngFor="let item of language">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="lang"
+          value="{{ item }}"
+          (change)="langchange($event)"
+        />
+        <label class="form-check-label"> {{ item }} </label>
+      </div>
+      <br />
+      Qualification :
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Qualification"
+        name="qual"
+        [(ngModel)]="qual"
+      />
+      <br />
+      <input
+        type="submit"
+        value="add"
+        class="btn btn-light"
+        [disabled]="!this.empid"
+      />
+      <button (click)="clearState()" type="reset" class="btn btn-warning">
+        Clear
+      </button>
+    </div>
+  </form>
+</div>
+<!-- <a class="btn btn-warning mx-auto" [hidden]>View Employee</a> -->

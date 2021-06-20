@@ -1,0 +1,43 @@
+<table class="table" *ngIf="loaded && emp.length > 0">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Designation</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Languages</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let emps of emp"
+      [class.list-group-item-secondary]="selectedemp === emps"
+    >
+      <td>{{ emps.empid }}</td>
+      <td>{{ emps.name }}</td>
+      <td>{{ emps.desig }}</td>
+      <td>{{ emps.sal }}</td>
+      <td>{{ emps.mail }}</td>
+      <td>{{ emps.phn }}</td>
+      <td>{{ emps.gen }}</td>
+      <td>{{ emps.lang }}</td>
+      <td>{{ emps.qual }}</td>
+      <td>
+        <a (click)="onSelect(emps)" href="#"><i class="fa fa-edit"></i></a
+        ><i (click)="onDelete(emps)" class="fa fa-remove"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="loaded && emp.length == 0">
+  <h3 class="text-center">Add Employee to see the details</h3>
+</div>
+
+<div *ngIf="!loaded">
+  <h5>Loading..</h5>
+</div>
