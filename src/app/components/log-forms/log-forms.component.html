@@ -1,6 +1,6 @@
 <div class="card card-body mx-auto col-md-6">
   <h2 class="mx-auto">Register Employee</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
     <div class="form-group">
       Employee ID :
       <input
